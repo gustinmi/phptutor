@@ -1,7 +1,7 @@
 <?php  //this designates PHP code block. 
 
 // Constants definition. You access it by name only. For example DB_SERVER 
-define("DB_SERVER", "127.0.0.1:3306");
+define("DB_SERVER", "127.0.0.1");
 define("DB_USER", "phptut");
 define("DB_PASS", "p");
 define("DB_NAME", "phptut");
@@ -10,7 +10,7 @@ define("DB_NAME", "phptut");
 $startTime = MicroTime ( true );
 
 //get some diagnostic info
-echo memory_get_usage();
+echo "Memory used: " . memory_get_usage() ."\n";
 
 //We try to connect to database
 $link = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
@@ -21,7 +21,7 @@ if (!$link) {
 }
 
 //echo some db info
-echo mysqli_get_host_info(link) . "\n";
+echo "Connected to: " . mysqli_get_host_info($link) . "\n";
 
 //create query (just a text)
 $query = "SELECT id, name FROM items";
@@ -38,16 +38,16 @@ if (mysqli_num_rows($result) < 1) {
 
 for ($x=0; $x<=count($result); $x++)
 {
-	$row = mysqli_fetch_array($result)
+	$row = mysqli_fetch_array($result);
 	echo $row['id'] . ', ' . $row['name'] . "\n"; 
 } 
 
-echo memory_get_usage();
+echo "Memory used: " . memory_get_usage() . "\n";
 
 //free the memory immediately
 mysqli_free_result($result);
 
-echo memory_get_usage();
+echo "Memory used: " . memory_get_usage() ."\n";
 
 //close the link explicitely
 mysqli_close($link);
@@ -56,6 +56,6 @@ mysqli_close($link);
 $endTime = MicroTime ( true );
 
 //print difference end -beginning
-echo ' EXEC_TIME ' . Number_Format ( $endTime - $startTime, 50 );
+echo ' EXEC_TIME ' . Number_Format ( $endTime - $startTime, 50 ) . "\n";
 
 ?>
