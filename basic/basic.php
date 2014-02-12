@@ -1,5 +1,6 @@
 <?php
 
+
 //===============   constants
 
 define("GREETING", "Welcome to LAMP!");
@@ -97,6 +98,9 @@ foreach($lampDict as $lampElt)
  	echo $lampElt;
 }
 
+// ================    Diagnostics
+
+echo __FILE__ . ' : ' . __METHOD__ . ':' . __LINE__;
 
 
 ?>
