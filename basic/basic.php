@@ -22,7 +22,7 @@ $someText = 'abc';
 $someOtherText = $someText . 'def'; 
 
 // concatening string Option 2 (magic quotes)
-$someOtherText2 = "$someText def"; 
+$someOtherText2 = "${someText}def"; 
 
 echo $someText . ' ' . $someOtherText . ' ' . $someOtherText2 . "\n";
 
@@ -34,8 +34,9 @@ $third = "20";
 
 echo $first + $second + $third . "\n";
 
-$decimal = 10.365;
-$isOk=true;
+$decimal = 10.365; //decimal
+
+$isOk=true;  //boolean
 
 //==========  date
 

@@ -1,10 +1,6 @@
 <?php  //this designates PHP code block. 
 
-// Constants definition. You access it by name only. For example DB_SERVER 
-define("DB_SERVER", "127.0.0.1");
-define("DB_USER", "phptut");
-define("DB_PASS", "p");
-define("DB_NAME", "phptut");
+require('const.sql.php');
 
 //We record the begin timestamp in microseconds
 $startTime = MicroTime ( true );
@@ -29,6 +25,8 @@ $query = "SELECT id, name FROM items";
 //get the result (it will be associative array)
 $result = mysqli_query($link, $query);
 
+
+
 //get error message with query
 
 //¨check the result set.. colud be empty 
@@ -36,7 +34,9 @@ if (mysqli_num_rows($result) < 1) {
     die('empty table... nothing to print'); 
 }
 
-for ($x=0; $x<=count($result); $x++)
+ $rowCount = mysqli_num_rows($result);
+
+for ( $x=0; $x < rowCount; $x++)
 {
 	$row = mysqli_fetch_array($result);
 	echo $row['id'] . ', ' . $row['name'] . "\n"; 
@@ -56,6 +56,6 @@ mysqli_close($link);
 $endTime = MicroTime ( true );
 
 //print difference end -beginning
-echo ' EXEC_TIME ' . Number_Format ( $endTime - $startTime, 50 ) . "\n";
+echo ' EXEC_TIME ' . ($endTime - $startTime) . "\n";
 
 ?>

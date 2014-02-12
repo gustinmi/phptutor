@@ -1,6 +1,21 @@
 body {
-	background-color: green;
-	color: yellow;
+	background-color: black;
+	color: white;
 	padding: 0px;
+	font-size: 20px;
 }
 
+table {
+	width: 100%;
+	border: 1px solid white;
+
+}
+
+tr {
+
+}
+
+td {
+	border-left: 1px solid white;
+
+}
