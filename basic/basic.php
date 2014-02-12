@@ -6,7 +6,7 @@ define("GREETING", "Welcome to LAMP!");
 echo GREETING;
 
 //================================  VARIABLES
-
+$myVar = 'abc';
 var_dump($myVar); //dump variable
 var_dump(array(1,2,3)); //dump array or object
 isset($myVar); //does varible point to any value
@@ -47,7 +47,7 @@ echo "Tomorrow is " . date("Y/m/d", $tomorrow);
 //========  ARRAY
 
 $lampArray=array("apache2","mysql","php5");  //index array
-print_r($lampStack);
+print_r($lampArray);
 
 $lampArray[] = "linux";   //add another element
 echo 'Items in $lampArray' . count($lampArray);
@@ -57,7 +57,7 @@ $multiDimArray=array(  //multi dimensional indexed array
 	array("mysql-server","mysql-client"),
 	array("php5","php5-mysql")
 );  
-print_r($lampStack);
+print_r($multiDimArray);
 
 $lampDict=array("first"=>"apache2","second"=>"mysql","third"=>"php5"); //associative array
 print_r($lampDict);
@@ -86,15 +86,15 @@ if ( $num > 5 ) {
 //=====   for loop
 $cities = array("lj", "ce", "mb");
 $citiesCount = count($cities);
-for ($i=0; $i<=$citiesCount; $i++)
+for ( $i=0; $i < $citiesCount; $i++ )
 {
 	echo $cities[$i];
 } 
 
 //foreach loop (asociative arrays)
-foreach($lampElt as $lampDict)
+foreach($lampDict as $lampElt)
 {
- 	echo "Value : " . $lampElt;
+ 	echo $lampElt;
 }
 
 
