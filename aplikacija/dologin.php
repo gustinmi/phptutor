@@ -11,8 +11,10 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ){
 
 		//fake password implementation
 		if ( $usrName === $usrPassword ) { // if login OK
-			error_log('redirect ok');			
+			error_log('redirect ok' . $usrName );
+var_dump($_SESSION);			
 			$_SESSION['userName'] = $usrName; //remember into session
+			error_log( $_SESSION['userName']  );
 			header( "Location: index.php" );
 		}
 		else {

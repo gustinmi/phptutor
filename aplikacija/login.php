@@ -1,5 +1,6 @@
 <?php
 	//check if error flag is in URL
+if (isset($_GET['errId'])){
 	$errId = urldecode($_GET["errId"]);
 	if (!empty($errId)){
 		switch ($errId) {
@@ -17,6 +18,7 @@
        			break;
 		}
 	}
+}
 ?>
 
 
