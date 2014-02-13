@@ -16,7 +16,7 @@
 
 		?>
 
-		<script type="text/javascript" src="mojskript.js" />
+	<script type="text/javascript" src="mojskript.js"></script>
 		
 	</body>
 </html>

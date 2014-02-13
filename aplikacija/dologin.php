@@ -2,22 +2,24 @@
 
 session_start(); //start session
 
-if ( $_SERVER['REQUEST_METHOD' == 'POST'] ){
+if ( $_SERVER['REQUEST_METHOD'] == 'POST' ){
 
-	$usrName = urldecode($_POST["txtUser"]);
+	$usrName = urldecode($_POST["txtName"]);
 	$usrPassword = urldecode($_POST["txtPassword"]);
 
 	if (ctype_alnum($usrName) && ctype_alnum($usrPassword)){
 
 		//fake password check
 		if ( $usrName === $usrPassword ) { // if login OK
-		
-			http_redirect("index.php", array(), true, HTTP_REDIRECT_TEMP);
+			error_log('redirect ok');			
 			$_SESSION['userName'] = $usrName; //remember into session
+			header( "Location: index.php" );
+			//http_redirect("main.php", array(), true, HTTP_REDIRECT_PERM);
 
 		}
 		else {
-			http_redirect("login.php", array("errId" => "1"), true, HTTP_REDIRECT_TEMP;
+			header( "Location: login.php?errId=1" );
+			//http_redirect("login.php", array("errId" => "1"), true, HTTP_REDIRECT_PERM);
 		}	
 	}
 }
