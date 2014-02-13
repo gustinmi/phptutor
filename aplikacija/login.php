@@ -44,9 +44,9 @@ if (isset($_GET['errId'])){
 				<label for="geslo">Geslo</label>
 				<input id="geslo" name="txtPassword" type="password" />
 			</div>
-			<div>
-				<input id="register" name="btnLogin" type="submit" value="Prijava" />
-			</div>
+			
+			<input id="register" name="btnLogin" type="submit" value="Prijava" />
+			
 		</form>
 </div>
 	</body>
