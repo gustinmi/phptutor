@@ -31,35 +31,29 @@
 		<div class="user">Uporabnik: <?php echo $_SESSION['userName']; ?></div>
 	</div>
 	<div id="main">
-		
-		<form action="edit.php" method="post">
-		   <table class="grid">
-		        <caption>Rezultati</caption>
-		        <thead>
-		        <tr>
-		            <th>ID</th>
-		            <th>Vrednost</th>
-		            <th>Akcija</th>
-		        </tr>
-		        </thead>
-		        <tbody>
-					<?php while ($row = mysqli_fetch_array($result)) { ?>
-						<tr>
-							<td> <?php echo $row['id'] ?>   </td>
-							<td>
-								<?php echo $row['name'] ?>
-							</td>
-							<td>
-
-		   						<input type="hidden" name="id" value="<?php echo $row['id']?>">
-								<input type="submit" name="btnEdit" value="Popravi">
-							</td>
-						</tr>
-					<?php } ?>	        	
-		        </tbody>
-		    </table>
-		</form>
-
+	   <table class="grid">
+	        <caption>Rezultati</caption>
+	        <thead>
+	        <tr>
+	            <th>ID</th>
+	            <th>Vrednost</th>
+	            <th>Akcija</th>
+	        </tr>
+	        </thead>
+	        <tbody>
+				<?php while ($row = mysqli_fetch_array($result)) { ?>
+					<tr>
+						<td><?php echo $row['id'] ?></td>
+						<td><?php echo $row['name'] ?></td>
+						<td>
+							<input type="button"
+								onclick="window.location.href=edit.php?id=<?php echo $row['id'] ?>"
+							value="Popravi">
+						</td>
+					</tr>
+				<?php } ?>	        	
+	        </tbody>
+	    </table>
 	</div>
 	<div id="footer">
 		

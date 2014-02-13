@@ -20,38 +20,44 @@
 		//free the memory immediately
 		if (isset($result))
 			mysqli_free_result($result);
+		
 		//close the link explicitely
-		mysqli_close($link);
+		if (isset($link))
+			mysqli_close($link);
 	}
-
 
 	$link = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
 
-	if ( $_POST['btnUpdate'] == '' ){   // odprtje obrazca
+	if ( $_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["id"]) ){   // odprtje obrazca
 
 		//get data
 		$itemId = urldecode($_GET["id"]);
 		$secureId = mysqli_real_escape_string( $itemId );
-
-		fetchItem();
+		if (isset($secureId)){
+			fetchItem();
+		}
+		else{
+			header( "Location: index.php" );
+			cleanup();
+			die();
+		}
 		
 	} else {  // uporabnik je klinil popravi
 
 		//get data
 		$itemId = urldecode($_POST["id"]);
 		$secureId = mysqli_real_escape_string($link, $itemId );
-	
 		$itemName = urldecode($_POST["txtName"]);
 		$secureName = mysqli_real_escape_string($link, $itemId );
 
-		if (empty($secureId) || empty($secureName))
+		if (empty($secureId) || empty($secureName)){
 			error_log("Possible attack");
 			header( "Location: index.php" );
 			cleanup();
 			die();
+		}
 
 		$query = "UPDATE items SET name = $secureName WHERE id = $secureId";
-		
 		if (mysqli_query($link, $query)){
 			header( "Location: index.php" );
 			cleanup();
@@ -63,7 +69,7 @@
 
 	} 
 
-	cleanup();
+	
 
 ?>
 
@@ -116,3 +122,6 @@
 			
 	</body>
 </html>
+<?php
+	cleanup();  //if we came here
+?>
