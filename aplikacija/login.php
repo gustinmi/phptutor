@@ -1,5 +1,6 @@
 <?php
-	//check if error flag is in URL
+//check if error flag is in URL
+$errMsg = '';
 if (isset($_GET['errId'])){
 	$errId = urldecode($_GET["errId"]);
 	if (!empty($errId)){
@@ -21,7 +22,6 @@ if (isset($_GET['errId'])){
 }
 ?>
 
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -31,11 +31,9 @@ if (isset($_GET['errId'])){
 	</head>
 	<body>
 
-		<?php
-			if (!empty($errMsg)){
-				echo "<div>" . $errMsg ."</div>"; 			
-			}
-		?>
+		<?php if ( !empty($errMsg) ): ?>
+			<div class="error"><?php echo $errMsg ?></div>
+		<?php endif ?>
 
 		<form action="dologin.php" method="post">
 			<div>

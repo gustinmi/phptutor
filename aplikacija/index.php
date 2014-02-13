@@ -3,7 +3,7 @@
 	require_once('settings.php');
 	//check if session is expired, or if user did not login
 	if(!isset($_SESSION['userName'])){
-		error_log("User is" . $_SESSION['userName']. "\n");
+		error_log("Possible attack");
 		header( "Location: login.php?errId=3" );
 		die();
 	}
@@ -45,11 +45,11 @@
 		        <tbody>
 					<?php while ($row = mysqli_fetch_array($result)) { ?>
 						<tr>
-							<td> <?php echo $row['id']; ?>   </td>
-							<td> <?php echo $row['name']; ?> </td>
+							<td> <?php echo $row['id'] ?>   </td>
+							<td> <?php echo $row['name'] ?> </td>
 							<td>
-								<input type="hidden" value=" <?php echo $row['id']; ?> ">
-								<input type="submit" value="Popravi">
+								<input type="hidden" name="id" value=" <?php echo $row['id'] ?> ">
+								<input type="submit" name="btnEdit" value="Popravi">
 							</td>
 						</tr>
 					<?php } ?>	        	
