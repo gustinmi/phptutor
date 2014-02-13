@@ -10,7 +10,7 @@
 		        $errMsg = 'Napačno ime';
 		        break;
 		    case 3:
-		        $errMsg = "Nimate pravic za uporabo";
+		        $errMsg = "Seja je potekla. Prijavite se ponovno.";
 		        break;
 		     default:
        			$errMsg = "Neznana napaka";    
