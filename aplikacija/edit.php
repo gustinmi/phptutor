@@ -92,34 +92,35 @@
 			<div class="hcolLeft">Pregled podatkov</div>
 			<div class="hcolRight">Uporabnik: <?php echo $_SESSION['userName']; ?></div>
 		</div>
-		<div id="main">
 
-			<?php if ( $isError == true ): ?>
-				<div class="error">Napaka pri shranjevanju</div>
-			<?php endif ?>
+		<?php if ( $isError == true ): ?>
+			<div class="error">Napaka pri shranjevanju</div>
+		<?php endif ?>
+
+		<div id="main">
 
 			<?php while ($row = mysqli_fetch_array($result)) { ?>
 
-			<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-			   <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
-			   <div class="line">
-			   		<div class="col">
-			   			<label>ID</label>
-						<label><?php echo $row['id'] ?></label>
-
-			   		</div>
-					<div class="col">
-			   			<label for="ime">Ime</label>
-					    	<input id="ime" name="txtName" type="text" value="<?php echo $row['name'] ?>" />
-			   		</div>
-			   </div>
-				<input type="submit" name="btnUpdate" value="Popravi">
-			</form>
+				<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+				   <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+				   <div class="row">
+				   		<div class="col">
+				   			<label>ID</label>
+							<label><?php echo $row['id'] ?></label>
+				   		</div>
+						<div class="col">
+				   			<label for="ime">Ime</label>
+						    	<input id="ime" name="txtName" type="text" value="<?php echo $row['name'] ?>" />
+				   		</div>
+				   	</div>
+					<input type="submit" name="btnUpdate" value="Popravi">
+				</form>
 
 			<?php } ?>	        	
+
 		</div>
 		<div id="footer">
-			PHP Sample application		
+			<span>PHP Sample application</span>		
 		</div>
 
 		<script type="text/javascript" src="mojskript.js"></script>

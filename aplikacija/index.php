@@ -27,9 +27,10 @@
 	<body>
 
 	<div id="header">
-		<div class="title">Pregled podatkov</div>
-		<div class="user">Uporabnik: <?php echo $_SESSION['userName']; ?></div>
+		<div class="hcolLeft">Pregled podatkov</div>
+		<div class="hcolRight">Uporabnik: <?php echo $_SESSION['userName']; ?></div>
 	</div>
+	
 	<div id="main">
 	   <table class="grid">
 	        <caption>Rezultati</caption>
@@ -56,7 +57,7 @@
 	    </table>
 	</div>
 	<div id="footer">
-		
+		<span>PHP Sample application</span>		
 	</div>
 
 	<script type="text/javascript" src="mojskript.js"></script>

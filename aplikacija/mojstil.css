@@ -2,5 +2,67 @@ body {
 	background-color: green;
 	color: yellow;
 	padding: 0px;
+	margin: 0px;
+	font-size: 15px;
+	font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
 }
 
+div#header {
+	padding: 5px;
+	display: table-row;
+}
+
+div#header div.hcolLeft {
+	display: table-cell;
+}
+
+div#header div.hcolRight {
+	display: table-cell;
+}
+
+div#main {
+	padding: 5px;
+}
+
+div#footer {
+	padding: 5px;
+	text-align: center;
+}
+
+
+
+div#login {
+
+}
+
+table#grid {
+
+}
+
+table#grid th td {
+
+}
+
+table#grid tr td {
+	
+}
+
+table#grid tr:hover {
+	
+}
+
+div.row {
+	display: table-row;
+}
+
+div.col {
+	display: table-cell;	
+}
+
+input[type='text'] {
+	padding: 5px;
+}
+
+input[type='button'], input[type='submit'] {
+	padding: 5px;
+}
