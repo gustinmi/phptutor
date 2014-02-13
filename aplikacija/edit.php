@@ -12,11 +12,13 @@
 	$isError = false;   // global flag
 
 	function fetchItem(){
+		
 		$query = "SELECT id, name FROM items WHERE id = $secureId LIMIT 0, 1";
 		$result = mysqli_query($link, $query);
 	}
 
 	function cleanup(){
+		global $result, $link;
 		//free the memory immediately
 		if (isset($result))
 			mysqli_free_result($result);
@@ -32,9 +34,10 @@
 
 		//get data
 		$itemId = urldecode($_GET["id"]);
-		$secureId = mysqli_real_escape_string( $itemId );
+		$secureId = mysqli_real_escape_string($link, $itemId );
 		if (isset($secureId)){
-			fetchItem();
+			$query = "SELECT id, name FROM items WHERE id = $secureId LIMIT 0, 1";
+			$result = mysqli_query($link, $query);
 		}
 		else{
 			header( "Location: index.php" );
@@ -45,10 +48,10 @@
 	} else {  // uporabnik je klinil popravi
 
 		//get data
-		$itemId = urldecode($_POST["id"]);
+		$itemId = $_POST["id"];
 		$secureId = mysqli_real_escape_string($link, $itemId );
-		$itemName = urldecode($_POST["txtName"]);
-		$secureName = mysqli_real_escape_string($link, $itemId );
+		$itemName = $_POST["txtName"];
+		$secureName = mysqli_real_escape_string($link, $itemName );
 
 		if (empty($secureId) || empty($secureName)){
 			error_log("Possible attack");
@@ -57,13 +60,14 @@
 			die();
 		}
 
-		$query = "UPDATE items SET name = $secureName WHERE id = $secureId";
+		$query = "UPDATE items SET name = '$secureName' WHERE id = $secureId";
 		if (mysqli_query($link, $query)){
 			header( "Location: index.php" );
 			cleanup();
 			die();
 		} else{
-			fetchItem();
+  			$query = "SELECT id, name FROM items WHERE id = $secureId LIMIT 0, 1";
+			$result = mysqli_query($link, $query);
 			$isError = true;
 		}
 
@@ -78,7 +82,7 @@
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>Popravljenje <?php echo $row['id'] ?></title>
+		<title>Popravljenje</title>
 		<link rel="stylesheet" href="mojstil.css" type="text/css" />
 	</head>
 

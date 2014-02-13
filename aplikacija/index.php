@@ -47,7 +47,7 @@
 						<td><?php echo $row['name'] ?></td>
 						<td>
 							<input type="button"
-								onclick="window.location.href=edit.php?id=<?php echo $row['id'] ?>"
+								onclick="window.location.href='edit.php?id=<?php echo $row['id'] ?>'"
 							value="Popravi">
 						</td>
 					</tr>
