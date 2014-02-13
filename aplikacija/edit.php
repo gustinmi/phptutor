@@ -14,12 +14,12 @@
 	function fetchItem(){
 		$query = "SELECT id, name FROM items WHERE id = $secureId LIMIT 0, 1";
 		$result = mysqli_query($link, $query);
-		$row = mysqli_fetch_array($result);
 	}
 
 	function cleanup(){
 		//free the memory immediately
-		mysqli_free_result($result);
+		if (isset($result))
+			mysqli_free_result($result);
 		//close the link explicitely
 		mysqli_close($link);
 	}
@@ -27,7 +27,7 @@
 
 	$link = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
 
-	if ( $_SERVER['REQUEST_METHOD'] == 'GET' ){   // odprtje obrazca
+	if ( $_POST['btnUpdate'] == '' ){   // odprtje obrazca
 
 		//get data
 		$itemId = urldecode($_GET["id"]);
@@ -35,14 +35,14 @@
 
 		fetchItem();
 		
-	} else if ( $_SERVER['REQUEST_METHOD'] == 'POST' ){  // uporabnik je klinil popravi
+	} else {  // uporabnik je klinil popravi
 
 		//get data
 		$itemId = urldecode($_POST["id"]);
-		$secureId = mysqli_real_escape_string( $itemId );
+		$secureId = mysqli_real_escape_string($link, $itemId );
 	
 		$itemName = urldecode($_POST["txtName"]);
-		$secureName = mysqli_real_escape_string( $itemId );
+		$secureName = mysqli_real_escape_string($link, $itemId );
 
 		if (empty($secureId) || empty($secureName))
 			error_log("Possible attack");
@@ -88,6 +88,8 @@
 				<div class="error">Napaka pri shranjevanju</div>
 			<?php endif ?>
 
+			<?php while ($row = mysqli_fetch_array($result)) { ?>
+
 			<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
 			   <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
 			   <div class="line">
@@ -98,12 +100,13 @@
 			   		</div>
 					<div class="col">
 			   			<label for="ime">Ime</label>
-				    	<input id="ime" name="txtName" type="text" value="<?php echo $row['name'] ?>" />
+					    	<input id="ime" name="txtName" type="text" value="<?php echo $row['name'] ?>" />
 			   		</div>
 			   </div>
-				<input type="submit" value="Popravi">
+				<input type="submit" name="btnUpdate" value="Popravi">
 			</form>
 
+			<?php } ?>	        	
 		</div>
 		<div id="footer">
 			PHP Sample application		

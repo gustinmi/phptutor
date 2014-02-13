@@ -46,9 +46,12 @@
 					<?php while ($row = mysqli_fetch_array($result)) { ?>
 						<tr>
 							<td> <?php echo $row['id'] ?>   </td>
-							<td> <?php echo $row['name'] ?> </td>
 							<td>
-								<input type="hidden" name="id" value=" <?php echo $row['id'] ?> ">
+								<?php echo $row['name'] ?>
+							</td>
+							<td>
+
+		   						<input type="hidden" name="id" value="<?php echo $row['id']?>">
 								<input type="submit" name="btnEdit" value="Popravi">
 							</td>
 						</tr>
