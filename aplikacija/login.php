@@ -30,23 +30,24 @@ if (isset($_GET['errId'])){
 		<link rel="stylesheet" href="mojstil.css" type="text/css" />
 	</head>
 	<body>
+
 		<?php if ( !empty($errMsg) ): ?>
 			<div class="error"><?php echo $errMsg ?></div>
 		<?php endif ?>
-		<div id="login">
-			<form action="dologin.php" method="post">
-				<div class="row">
-				    <label class="col" for="ime">Ime</label>
-				    <input class="col" id="ime" name="txtName" type="text" />
-				</div>
-				<div class="row">
-					<label class="col" for="geslo">Geslo</label>
-					<input class="col" id="geslo" name="txtPassword" type="password" />
-				</div>
-				<div class="row">
-					<input id="register" name="btnLogin" type="submit" value="Prijava" />
-				</div>
-			</form>
-		<div>
+<div id="login">
+		<form action="dologin.php" method="post">
+			<div>
+			    <label for="ime">Ime</label>
+			    <input id="ime" name="txtName" type="text" />
+			</div>
+			<div>
+				<label for="geslo">Geslo</label>
+				<input id="geslo" name="txtPassword" type="password" />
+			</div>
+			<div>
+				<input id="register" name="btnLogin" type="submit" value="Prijava" />
+			</div>
+		</form>
+</div>
 	</body>
 </html>
