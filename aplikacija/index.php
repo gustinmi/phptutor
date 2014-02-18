@@ -1,6 +1,7 @@
 <?php
 	session_start();	
 	require_once('settings.php');
+	
 	//check if session is expired, or if user did not login
 	if(!isset($_SESSION['userName'])){
 		error_log("Possible attack");
