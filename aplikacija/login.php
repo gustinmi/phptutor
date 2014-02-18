@@ -35,7 +35,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' && $_SERVER['HTTP_REFERER'] == 'login.
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>Prijava</title>
+		<title>Login</title>
 		<link rel="stylesheet" href="mojstil.css" type="text/css" />
 	</head>
 	<body onload="validateLogin()">
@@ -57,6 +57,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' && $_SERVER['HTTP_REFERER'] == 'login.
 				
 			</form>
 		</div>
+		<script type="text/javascript" src="mojskript.js"></script>
 		<script type="text/javascript" src="mojskript.js"></script>
 	</body>
 </html>

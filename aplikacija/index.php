@@ -1,11 +1,10 @@
 <?php
 	session_start();	
 	require_once('settings.php');
-	
+
 	//check if session is expired, or if user did not login
 	if(!isset($_SESSION['userName'])){
-		error_log("Possible attack");
-		header( "Location: login.php?errId=3" );
+		header( "Location: login.php" );
 		die();
 	}
 
@@ -60,9 +59,8 @@
 	<div id="footer">
 		<span>PHP Sample application</span>		
 	</div>
-
+	<script type="text/javascript" src="messages.js"></script>
 	<script type="text/javascript" src="mojskript.js"></script>
-		
 	</body>
 </html>
 <?php

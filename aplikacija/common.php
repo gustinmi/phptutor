@@ -1,3 +1,4 @@
+<?php
 /**
 * Redirect and exists right away
 * Location url should always be absolute link
@@ -37,3 +38,5 @@ public function getMsg ( $Name, $Replace = null )
 
 	return $returnStr;
 }
+
+?>

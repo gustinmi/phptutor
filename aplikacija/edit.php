@@ -12,7 +12,6 @@
 	$isError = false;   // global flag
 
 	function fetchItem(){
-		
 		$query = "SELECT id, name FROM items WHERE id = $secureId LIMIT 0, 1";
 		$result = mysqli_query($link, $query);
 	}
