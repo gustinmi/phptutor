@@ -21,7 +21,7 @@ function isAuthenticated( $clean ){
 * The language is determined in bootstrap.php
 * The language supports simple replace operations with placeholders $%0 ... $%N
 */
-public function getMsg ( $Name, $Replace = null )
+function getMsg ( $Name, $Replace = null )
 {
 	if ( IsSet ( $lang[$Name] ) === false )
 		return '<span style="color: red;">Translation "' . $Name . '" not available!</span>';

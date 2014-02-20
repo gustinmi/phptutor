@@ -7,6 +7,19 @@ body {
 	font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
 }
 
+h1 {
+    margin: 10px 0px 2px 0px;
+}
+
+div.spacer20 {
+    height: 20px;
+}
+
+span.description {
+    display: inline-block;
+    margin: 2px 0px 10px 0px;
+}
+
 div#header {
 	padding: 5px;
 	display: table-row;
@@ -30,19 +43,51 @@ div#footer {
 }
 
 div#login {
-	padding-top: 100px;
-	display: table-cell
-	vertical-align: middle
+	width: 500px;
+	margin: 0px auto;
+    text-align: left;
 }
 div#login div {
 	display: table-row;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
-div#login div label {
-	display: table-cell;
+
+div#login input {
+    border: none;
+    font-size: 20px;
+    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
 }
+
 div#login input[type='submit'] {
 	padding: 10px;
 }
+
+div#login input[type='submit']:hover {
+    font-weight: bold;
+}
+
+/*
+div#login input:focus {
+    border: 2px solid grey;
+    color: black;
+}
+
+div#login input.error {
+    border: 3px solid red;
+    color: red;
+}
+
+div#login input {
+    border: none;
+    color: gray;
+}
+
+div#login input.ok {
+    border: none;
+    color: black;
+}
+*/
 
 table#grid {
 
