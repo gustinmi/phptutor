@@ -1,10 +1,15 @@
 <?php
-	session_start();	
-	require_once('settings.php');
+    require_once('settings.php');
+    require_once('common.php');
+
+    if (function_exists('session_start')) { //old php comaptibility
+        session_start();
+    } // use session variables}
 
 	//check if session is expired, or if user did not login
 	if(!isset($_SESSION['userName'])){
-		header( "Location: login.php" );
+		logm("Session expired");
+        redirect(LOGIN_PAGE);
 		die();
 	}
 
@@ -21,7 +26,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Glavna stran</title>
-		<link rel="stylesheet" href="mojstil.css" type="text/css" />
+		<link rel="stylesheet" href="css/mojstil.css" type="text/css" />
 	</head>
 
 	<body>
@@ -59,8 +64,8 @@
 	<div id="footer">
 		<span>PHP Sample application</span>		
 	</div>
-	<script type="text/javascript" src="messages.js"></script>
-	<script type="text/javascript" src="mojskript.js"></script>
+	<script type="text/javascript" src="js/messages.js"></script>
+	<script type="text/javascript" src="js/mojskript.js"></script>
 	</body>
 </html>
 <?php

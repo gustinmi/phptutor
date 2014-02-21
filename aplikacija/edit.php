@@ -82,7 +82,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Popravljenje</title>
-		<link rel="stylesheet" href="mojstil.css" type="text/css" />
+		<link rel="stylesheet" href="css/mojstil.css" type="text/css" />
 	</head>
 
 	<body>
@@ -122,7 +122,7 @@
 			<span>PHP Sample application</span>		
 		</div>
 
-		<script type="text/javascript" src="mojskript.js"></script>
+		<script type="text/javascript" src="js/mojskript.js"></script>
 			
 	</body>
 </html>

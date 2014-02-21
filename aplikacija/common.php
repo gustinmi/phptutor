@@ -4,11 +4,19 @@
 * Location url should always be absolute link
 */
 function redirect($path){
-	exit(header('Location: ' . $_SERVER['HTTP_HOST'] . '/' . $path));
+    //logm($path);
+    //logm($_SERVER['HTTP_HOST']);
+
+    if (APP_NAME === '/')
+        $appname = '/';
+    else
+        $appname = '/' . APP_NAME . '/';
+
+	exit(header('Location: ' . 'http://' .$_SERVER['HTTP_HOST'] . $appname . $path));
 }
 
 function isAuthenticated( $clean ){
-	if ( $clean['usrName'] === $clean['usrPassword'] ) { //fake presumption; change to something meaningfull
+	if ( $clean['txtName'] === $clean['txtPassword'] ) { //fake presumption; change to something meaningfull
 		return true;		
 	}
 	else {
@@ -23,8 +31,10 @@ function isAuthenticated( $clean ){
 */
 function getMsg ( $Name, $Replace = null )
 {
-	if ( IsSet ( $lang[$Name] ) === false )
-		return '<span style="color: red;">Translation "' . $Name . '" not available!</span>';
+	if (!IsSet($lang[$Name])){
+        logm("Missing translation ${$Name}");
+        return '<span style="color: red;">Translation "' . $Name . '" not available!</span>';
+    }
 
 	if ( $Replace === null ) // no replacements are required
 		return $lang[$Name];
@@ -38,5 +48,34 @@ function getMsg ( $Name, $Replace = null )
 
 	return $returnStr;
 }
+
+function logm($dump){
+    $logbuff = print_r($dump, true);
+    if (empty($dump)) $logbuff = 'EMPTY!';
+
+    $trace = debug_backtrace();
+    if (isset($trace) && is_array($trace)) {
+        $line = $trace[1]['line'];
+        $func = $trace[1]['function'];
+        $file = $trace[1]['file'];
+    }
+
+    // from command line
+    if (php_sapi_name() == 'cli') {
+        echo "${file} : ${func} : ${line} : $logbuff";
+    }
+    //inside web application
+    else{
+        error_log("${file} : ${func} : ${line} : $logbuff");
+    }
+
+}
+
+
+
+
+
+
+
 
 ?>
