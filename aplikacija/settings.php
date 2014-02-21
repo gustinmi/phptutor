@@ -12,3 +12,5 @@ define("DB_NAME", "phptut");
 define("INDEX_PAGE", "index.php");
 define("LOGIN_PAGE", "index.php");
 
+500 max width 
+max height 400 px
