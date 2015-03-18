@@ -14,7 +14,8 @@ Walk through modern  PHP language. Covers :
 
 ### Installation of mySql    
 
-    sudo apt-get install mysql-server libapache2-mod-auth-mysql php5-mysql
+    sudo apt-get install mysql-server mysql-client 
+    sudo apt-get install libapache2-mod-auth-mysql php5-mysql
     
 ### installation of PHP5
 
