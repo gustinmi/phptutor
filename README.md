@@ -43,7 +43,7 @@ Walk through modern  PHP language. Covers :
 
 Execute a php by intepreter. Beware tha CLI contenxt is different then web context. 
 
-    php myscript.php  
+    php -f myscript.php  
     
 ### Testing via commandline
 
