@@ -1,3 +1,7 @@
+<?php
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,12 +47,9 @@
 <tbody>
 <?php
 
-$daysOfWeek = array("Monday", "Tuesday", "Wednesday");
-$size = count($daysOfWeek);
 
-for ($i = 0; $i < $size; $i = $i + 1) {
-	echo "<tr><td> " . ($i + 1) . " </td><td> " . $daysOfWeek[$i] . " </td></tr>";
-}
+//	echo "<tr><td> " . ($i + 1) . " </td><td> " . $daysOfWeek[$i] . " </td></tr>";
+
 
 ?>
 <tfoot>
