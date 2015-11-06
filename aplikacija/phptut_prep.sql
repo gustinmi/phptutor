@@ -1,8 +1,8 @@
 -- Create tutorial database
 
-CREATE DATABASE phptut DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_bin;
-CREATE USER 'phptut'@'localhost' IDENTIFIED BY 'p';
-grant all privileges on phptut.* to 'phptut'@'localhost';
+CREATE DATABASE phptut1 DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_bin;
+CREATE USER 'phptut1'@'localhost' IDENTIFIED BY 'p';
+grant all privileges on phptut1.* to 'phptut1'@'localhost';
 
 CREATE TABLE IF NOT EXISTS `items` (
   `id` int(11) NOT NULL AUTO_INCREMENT,

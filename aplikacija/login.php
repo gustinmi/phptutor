@@ -15,10 +15,10 @@
         $ref = $_SERVER['HTTP_REFERER'];
         $refData = parse_url($ref);
 
-        if($refData['host'] !== CURR_DOMAIN /*&& $refData['path'] !== LOGIN_PAGE*/) {
-            logm('incorrect domain!');
-            die("Hotlinking not permitted");
-        }
+        #if($refData['host'] !== CURR_DOMAIN /*&& $refData['path'] !== LOGIN_PAGE*/) {
+        #    logm('incorrect domain!');
+        #    die("Hotlinking not permitted");
+        #}
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["txtName"]) && isset($_POST["txtPassword"])) {
 
