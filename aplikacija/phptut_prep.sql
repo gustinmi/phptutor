@@ -3,6 +3,7 @@
 CREATE DATABASE phptut1 DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_bin;
 CREATE USER 'phptut1'@'localhost' IDENTIFIED BY 'p';
 grant all privileges on phptut1.* to 'phptut1'@'localhost';
+use phptut1;
 
 CREATE TABLE IF NOT EXISTS `items` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
